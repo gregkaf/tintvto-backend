@@ -4,19 +4,10 @@ import logger from "node-color-log";
 
 dotenv.config();
 
-const { SF_LOGIN_URL, SF_USERNAME, SF_PASSWORD, SF_SECURITY_TOKEN } =process.env; //prettier-ignore
-const salesforceConnection = new jsforce.Connection({
-  loginUrl: SF_LOGIN_URL,
-});
+const { SF_LOGIN_URL, SF_USERNAME, SF_PASSWORD, SF_SECURITY_TOKEN } = process.env; //prettier-ignore
+const salesforceConnection = new jsforce.Connection({loginUrl: SF_LOGIN_URL}); //prettier-ignore
 
-// console.log(SF_LOGIN_URL);
-// console.log(SF_USERNAME);
-// console.log(SF_PASSWORD);
-// console.log(SF_SECURITY_TOKEN);
-
-salesforceConnection.login(
-  SF_USERNAME,
-  SF_PASSWORD + SF_SECURITY_TOKEN,
+salesforceConnection.login(SF_USERNAME, SF_PASSWORD + SF_SECURITY_TOKEN,
   (error, userInfo) => {
     if (error) {
       logger.bold().bgColor("red").log("Salesforce connection failed");
@@ -28,6 +19,6 @@ salesforceConnection.login(
       console.log("Organization id", userInfo.organizationId);
     }
   }
-);
+); //prettier-ignore
 
 export default salesforceConnection;
