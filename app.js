@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./endpoints/template/route.js";
+import skuRouter from "./endpoints/sku/route.js";
+// import templateRouter from "./endpoints/template/route.js";
 
 const app = express();
 
@@ -7,7 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); //prettier-ignore
 
-// roures
-app.use("/template", router);
+// routes
+// app.use("/template", templateRouter);
+app.use("/sku", skuRouter);
 
 export default app;
