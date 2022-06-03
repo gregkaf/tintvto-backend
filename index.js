@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import app from "./app.js";
+import logger from "node-color-log";
 
 const { PORT } = process.env;
 
@@ -20,5 +21,9 @@ process.on("SIGTERM", () => {
 });
 
 const server = app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  logger
+    .bold()
+    .color("black")
+    .bgColor("green")
+    .log(`Server running at http://localhost:${PORT}`);
 });
