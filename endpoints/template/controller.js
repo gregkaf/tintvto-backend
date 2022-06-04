@@ -8,7 +8,7 @@ export const getTemplate = async (_, res) => {
     if (!err) {
       console.log("Total records:", data.totalSize);
       // console.log("Total records:", data.totalSize);
-      res.send(data.records);
+      res.json(data.records);
       // res.send({
       //   id: "hello",
       // });
